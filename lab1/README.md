@@ -1,4 +1,4 @@
-# Lab 1 (Fruit1 and Fruit2)
+# Fruit1 and Fruit2
 
 CS302: Data Structures and Algorithms II
 
