@@ -14,7 +14,7 @@ stored in a double-linked list.
 -----
 Usage
 -----
-Use the makefile to compile Fruit1 and Fruit2.
+Use the makefile to compile Fruit1 and Fruit2, then run the programs like so:
 
     ./Fruit1 -inorder|sortall|sortone file.txt
     
