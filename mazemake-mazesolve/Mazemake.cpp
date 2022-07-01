@@ -4,7 +4,7 @@
  *
  * This file generates a maze using disjoint sets. The maze is generated as 
  * a file that holds the locations of walls in the maze. Mazesolve.cpp can 
- * then read this file and solve the maze using a DFS.
+ * then read this file and solve the maze using Depth-First Search.
 */
 
 #include <cstdlib>

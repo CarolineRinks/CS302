@@ -3,7 +3,7 @@
  * CS302 Spring 2021
  *
  * Reads a file that describes a maze, finds a path through the maze
- * using a Depth First Search, and writes the path to another file.
+ * using Depth First Search, and writes the path to another file.
 */
 
 #include <unistd.h>

@@ -2,7 +2,7 @@
  * Lab 3
  * CS302 Spring 2021
  *
- * This lab reads data from a file (firstname, lastname, phone number), and stores it in a single-linked
+ * This program reads data from a file (firstname, lastname, phone number), and stores it in a single-linked
  * list. Using smart-pointers, the list is then sorted via the sorting method specified by the user
  * (quicksort or mergesort) and the data is printed out in an organized manner. 
 */

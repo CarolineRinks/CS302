@@ -2,9 +2,10 @@
  * Lab 2
  * CS302 Spring 2021
  *
- * This program reads data from a file (firstname, lastname, and phone number), storing it in
- * a vector. The vector is then sorted lexicographically using the sorting algorithm specified
- * by the user (std::sort(), quicksort, or quickselect) and then printed to the user into 2 columns.
+ * This program implements the Quicksort and Quickselect algorithms. Data is read from a file 
+ * (firstname, lastname, and phone number), and stored in a vector. The vector is then sorted 
+ * lexicographically using the sorting algorithm specified by the user (std::sort(), quicksort, 
+ * or quickselect) and the resulting sorted list is printed to the user.
  * Quicksort and Quickselect are both implemented using Random Pivot Selection.
 */
 
