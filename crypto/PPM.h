@@ -15,7 +15,6 @@ using namespace std;
 
 struct RGB { 
 	RGB() { R = 0; G = 0; B = 0; }
-
 	unsigned char R, G, B;
 };
 
@@ -31,12 +30,11 @@ class PPM {
 
 		int get_Nrows() { return height; }
 		int get_Ncols() { return width; }
-
+	
 	private:
 		int width;
 		int height;
 		int max_color;
-
 		RGB **img;
 };
 
