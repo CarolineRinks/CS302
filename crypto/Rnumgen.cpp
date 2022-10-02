@@ -10,9 +10,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <vector>
-using namespace std;
-
 #include "Rnumgen.h"
+using namespace std;
 
 /* @brief: Constructor for rnumgen class
  * @param v: The histogram created in Crypto.cpp
@@ -20,7 +19,6 @@ using namespace std;
 */
 rnumgen::rnumgen(vector<int> &v, int seed) {
 	srand(seed);
-
 	F.resize(v.size());
 	partial_sum(v.begin(), v.end(), F.begin());
 	transform(F.begin(), F.end(), F.begin(),  bind2nd(divides<float>(), F.back()));
@@ -29,6 +27,5 @@ rnumgen::rnumgen(vector<int> &v, int seed) {
 int rnumgen::rand() { 
 	const double randmax = RAND_MAX+1.0;  
 	const double p = (double)std::rand()/randmax;  
-	
 	return upper_bound(F.begin(), F.end(), p) - F.begin();
 }
