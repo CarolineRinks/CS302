@@ -18,11 +18,8 @@ using namespace std;
 class rnumgen {
 	public:
 		rnumgen(vector<int> &, int seed=0);
-
 		int rand();
-
 	private:
 		vector<float> F;
 };
-
 #endif
