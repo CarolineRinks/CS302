@@ -19,7 +19,6 @@ const char ETX = 0x3;
 
 struct pixel {
 	pixel(int r=0, int c=0) { row = r; col = c; }
-	
 	int row;
 	int col;
 };
@@ -29,8 +28,7 @@ struct pixel {
  * @param pixel_list: The vector to populate with pixels */
 void set_pixel_list(PPM &img, vector<pixel> &pixel_list) {
 	int rows = img.get_Nrows();
-	int cols = img.get_Ncols();
-	
+	int cols = img.get_Ncols();	
 	for (int i = 0; i <= rows; i += 2){
 		for (int j = 0; j <= cols; j += 2){
 			pixel n(i, j);
@@ -46,7 +44,6 @@ void set_pixel_list(PPM &img, vector<pixel> &pixel_list) {
 void encode(PPM &img, vector<pixel> &pixel_list) {
 	int r, c, color, pix_i = 0;
 	char bit;
-
 	while (cin.get(bit)) {
 		if (pix_i >= (int)pixel_list.size()) {
 			cerr << "Ran out of pixels to encode.\n";
@@ -55,7 +52,6 @@ void encode(PPM &img, vector<pixel> &pixel_list) {
 		
 		for (int i = 0; i < 7; i++) {
 			bit = (bit>>i) & 0x01;
-
 			r = (pixel_list.at(pix_i)).row;
 			c = (pixel_list.at(pix_i)).col;
 			
@@ -80,7 +76,6 @@ void encode(PPM &img, vector<pixel> &pixel_list) {
 	for (int i = 0; i < 7; i++){
 		bit = ETX;
 		bit = (bit>>i) & 0x01;
-
 		r = (pixel_list.at(pix_i)).row;
 		c = (pixel_list.at(pix_i)).col;
 	
@@ -108,30 +103,24 @@ void encode(PPM &img, vector<pixel> &pixel_list) {
 void decode(PPM &img, vector<pixel> &pixel_list) {
 	int r, c, color, pix_i = 0; 
 	char lsb, character;
-	
 	while (1) {
 		if (pix_i >= (int)pixel_list.size()) {
 			cerr << "Ran out of pixels to decode.\n";
 			exit(EXIT_FAILURE);
-		}
-		
+		}	
 		character = 0x00;
 
 		for (int i = 0; i < 7; i++) {
 			r = (pixel_list.at(pix_i)).row;
-			c = (pixel_list.at(pix_i)).col;
-			
+			c = (pixel_list.at(pix_i)).col;	
 			color = pix_i % 3;	// r=0, g=1, b=2
 			
 			/* Extract the LSB of an encoded pixel and add the bit to 'character' */ 
 			lsb = *(((unsigned char *)&img[r][c]) + color);
 			lsb &= 0x01;
-
 			character |= (lsb<<i);
-
 			++pix_i;
-		}
-		
+		}	
 		if (character == ETX){	// stop decoding when you reach the ETX character
 			break;
 		}
@@ -157,9 +146,7 @@ int main (int argc, char *argv[]) {
 	}
 
 	file = argv[argc-1];
-
 	img.read(file);
-
 	set_pixel_list(img, pixel_list);
 
 	if (mode == "-encode") {
@@ -169,6 +156,5 @@ int main (int argc, char *argv[]) {
 	else if (mode == "-decode"){ 
 		decode(img, pixel_list);
 	}
-
 	return 0;
 }
